@@ -1,0 +1,49 @@
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h3>Favourite Books List </h3>
+          <!-- Add button -->
+          <!--<a href="/books/add" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add a Book</a>-->
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center">Computer ID</th>
+                  <th class="text-center">In Use</th>
+                  <th class="text-center">Last/Currently Used By</th>
+                  <th class="text-center">Request</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Template Row -->
+                <% for (let count = 0; count < Computer.length; count++) { %>
+                <tr>
+                  <td class="text-center""><%= Computer[count].computerID %></td>
+                  <td class="text-center">$<%= Computer[count].used %></td>
+                  <td class="text-center"><%= Computer[count].Lastuse %></td>
+                  <td class="text-center"><%= Computer[count].Genre %></td>
+
+                  <td class="text-center">
+                    <!-- Edit button (following route/books format) -->
+                    <input id="opt1" type="checkbox" name="check1" <%= question.options.option1.check ?  Computer[count] = true : "" %> />
+                  </td>
+
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer.ejs %>
+
+
